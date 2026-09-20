@@ -4,13 +4,27 @@ Walk your Rare Friend to a room door, then watch it play a ten-seat number table
 
 **Builder:** [khunchan](https://github.com/khunchan) · **Contact:** GitHub [@khunchan](https://github.com/khunchan) · **Category:** Economy Potential (also relevant: Token Activity and Character Spotlight) · **SDK:** FriendSDK v0.1 (0.1.0)
 
-[Source code](https://github.com/khunchan/friendsdk/tree/b708e4eade72efa51a0216fddf870c640d41bd96/games/friend-rooms) · [Game README with rules, measurements and Future SDK support](https://github.com/khunchan/friendsdk/blob/b708e4eade72efa51a0216fddf870c640d41bd96/games/friend-rooms/README.md) · [Notices](https://github.com/khunchan/friendsdk/blob/b708e4eade72efa51a0216fddf870c640d41bd96/games/friend-rooms/NOTICE.md)
+[Source code](https://github.com/khunchan/friendsdk/tree/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms) · [Game README with rules, measurements and Future SDK support](https://github.com/khunchan/friendsdk/blob/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/README.md) · [Notices](https://github.com/khunchan/friendsdk/blob/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/NOTICE.md)
 
 ## What it is
 
 A black-and-white isometric hall with four doors. **Room 100 RF** works; Room 1,000, 10,000 and 100,000 RF are locked and say they need future SDK support. Behind the working door your Friend sits at a table with nine simulated bots. Everyone gets a unique number from 1 to 100 and the highest number wins the pot. You choose how many games to play, confirm the SDK prompts once, and your Friend plays them all. Numbers open one by one, bots from the lowest up and your Friend's number last, then the table shows how far short you were ("Your 87 — 5 short of 92").
 
 **Everything is simulated.** No RF, private key or transaction signature is needed. Every amount is labelled SIMULATED.
+
+## Screenshots
+
+![One round: the numbers open one by one, bots from the lowest up and the Friend last, then a win with HIGHEST! and +9 RF SIMULATED](https://raw.githubusercontent.com/khunchan/friendsdk/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/media/round.gif)
+
+*One round at x1 speed: bots open from the lowest number up, the Friend's number opens last, then the win.*
+
+| Hall with the working door and three locked doors | Table during the reveal (closed plates show ?) |
+| --- | --- |
+| ![The hall](https://raw.githubusercontent.com/khunchan/friendsdk/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/media/hall.png) | ![The table mid-reveal](https://raw.githubusercontent.com/khunchan/friendsdk/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/media/reveal.png) |
+| **A win: HIGHEST! and +9 RF SIMULATED** | **Session receipt** |
+| ![A win at the table](https://raw.githubusercontent.com/khunchan/friendsdk/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/media/win.png) | ![The session receipt](https://raw.githubusercontent.com/khunchan/friendsdk/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/media/receipt.png) |
+
+*Captured from the game in the SDK's public runner with the SDK's mocked, read-only test wallet and its sample Friend #7730. The preview rolls are scripted (a loss, a win, a loss) so that a win can be shown; all amounts are simulated. The capture script is  in the game folder.*
 
 ## How it uses Rare Friends
 
@@ -25,7 +39,7 @@ Node.js 22+ on Linux or Ubuntu/WSL2, plus a browser wallet holding a hardwired R
 ```sh
 git clone https://github.com/khunchan/friendsdk.git
 cd friendsdk
-git checkout b708e4eade72efa51a0216fddf870c640d41bd96
+git checkout 83fa87aaad37966fbd500c082782deb523e41b90
 npm ci
 npm run dev:game -- games/friend-rooms
 ```
@@ -51,7 +65,7 @@ Expected reward: **0.90 RF per 1 RF ticket** (90% return). The table has 10 seat
 
 ## Future SDK support
 
-Friend Rooms is a preview. A real version needs: shared rooms with real players, several ticket tiers, a room contract with one allowance, a keeper bot and unattended settlement, one Dice randomness per round, gas and randomness paid from the round fee with the remainder burned, reading shared room state from game code, rooms of up to 100 seats with ceil(participants / 10) winners, a larger preview wallet, and Friend traits (Scenery, Floor) as a style source. The game README explains [how real Friends would join rooms](https://github.com/khunchan/friendsdk/blob/b708e4eade72efa51a0216fddf870c640d41bd96/games/friend-rooms/README.md#how-real-friends-join-rooms), why a contract is better than a server, and the [minimum ticket size](https://github.com/khunchan/friendsdk/blob/b708e4eade72efa51a0216fddf870c640d41bd96/games/friend-rooms/README.md#minimum-ticket-size-estimate) formula.
+Friend Rooms is a preview. A real version needs: shared rooms with real players, several ticket tiers, a room contract with one allowance, a keeper bot and unattended settlement, one Dice randomness per round, gas and randomness paid from the round fee with the remainder burned, reading shared room state from game code, rooms of up to 100 seats with ceil(participants / 10) winners, a larger preview wallet, and Friend traits (Scenery, Floor) as a style source. The game README explains [how real Friends would join rooms](https://github.com/khunchan/friendsdk/blob/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/README.md#how-real-friends-join-rooms), why a contract is better than a server, and the [minimum ticket size](https://github.com/khunchan/friendsdk/blob/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/README.md#minimum-ticket-size-estimate) formula.
 
 The economics are a formula, not a fixed price: a room is viable while (gas + RNG fee in ETH) × ETH price ≤ 10% × seats × ticket × RF price. The fee first pays the round's costs and the rest is burned. As an estimate as of 2026-09-20 (ETH about $2,450, 100,000 RF about 0.128 ETH from a community tracker, round costs about $0.10 assumed), a ten-seat room needs about 32 RF per ticket, so 1 and 10 RF are not viable and 100 RF is (about 3× margin, about 68% of the fee burned).
 
@@ -63,4 +77,4 @@ Known limits: the preview wallet is fixed at 20 RF (hence the 1/100 scale and 11
 
 ## Credits
 
-Built on FriendSDK v0.1: its world renderer and scenery, canonical Generations sprites (read from the chain, never altered), sound kit and runtime. The pixel font, table scene, number plates, bot tokens, rules and code are original to this game. See the [notices](https://github.com/khunchan/friendsdk/blob/b708e4eade72efa51a0216fddf870c640d41bd96/games/friend-rooms/NOTICE.md). AI-assisted build (Claude Code).
+Built on FriendSDK v0.1: its world renderer and scenery, canonical Generations sprites (read from the chain, never altered), sound kit and runtime. The pixel font, table scene, number plates, bot tokens, rules and code are original to this game. See the [notices](https://github.com/khunchan/friendsdk/blob/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/NOTICE.md). AI-assisted build (Claude Code).
