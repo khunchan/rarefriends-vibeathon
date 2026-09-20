@@ -10,7 +10,7 @@ Walk your Rare Friend to a room door, then watch it play a ten-seat number table
 
 **Builder:** [khunchan](https://github.com/khunchan) · **Contact:** GitHub [@khunchan](https://github.com/khunchan) · **Category:** Economy Potential (also relevant: Token Activity and Character Spotlight) · **SDK:** FriendSDK v0.1 (0.1.0)
 
-**[Playable preview](https://khunchan.github.io/friendsdk/)** · [Source code](https://github.com/khunchan/friendsdk/tree/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms) · [Game README with rules, measurements and Future SDK support](https://github.com/khunchan/friendsdk/blob/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/README.md) · [Notices](https://github.com/khunchan/friendsdk/blob/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/NOTICE.md)
+**[Playable preview](https://khunchan.github.io/friendsdk/)** · [Source code](https://github.com/khunchan/friendsdk/tree/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms) · [Game README with rules, measurements and Future SDK support](https://github.com/khunchan/friendsdk/blob/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/README.md) · [Notices](https://github.com/khunchan/friendsdk/blob/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/NOTICE.md)
 
 ## What it is
 
@@ -24,15 +24,15 @@ A black-and-white isometric hall with four doors. **Room 100 RF** works; Room 1,
 
 ## Screenshots
 
-![One game: the numbers open one by one, bots from the lowest up and the Friend last, then a win with HIGHEST! and +9 RF SIMULATED](https://raw.githubusercontent.com/khunchan/friendsdk/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/media/round.gif)
+![One game: the numbers open one by one, bots from the lowest up and the Friend last, then a win with HIGHEST! and +9 RF SIMULATED](https://raw.githubusercontent.com/khunchan/friendsdk/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/media/round.gif)
 
 *One game at x1 speed: bots open from the lowest number up, the Friend's number opens last, then the win.*
 
 | Hall with the working door and three locked doors | Table during the reveal (closed plates show ?) |
 | --- | --- |
-| ![The hall](https://raw.githubusercontent.com/khunchan/friendsdk/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/media/hall.png) | ![The table mid-reveal](https://raw.githubusercontent.com/khunchan/friendsdk/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/media/reveal.png) |
+| ![The hall](https://raw.githubusercontent.com/khunchan/friendsdk/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/media/hall.png) | ![The table mid-reveal](https://raw.githubusercontent.com/khunchan/friendsdk/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/media/reveal.png) |
 | **A win: HIGHEST! and +9 RF SIMULATED** | **Session receipt** |
-| ![A win at the table](https://raw.githubusercontent.com/khunchan/friendsdk/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/media/win.png) | ![The session receipt](https://raw.githubusercontent.com/khunchan/friendsdk/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/media/receipt.png) |
+| ![A win at the table](https://raw.githubusercontent.com/khunchan/friendsdk/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/media/win.png) | ![The session receipt](https://raw.githubusercontent.com/khunchan/friendsdk/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/media/receipt.png) |
 
 *Captured from the game in the SDK's public runner with the SDK's mocked, read-only test wallet and its sample Friend #7730. The preview rolls are scripted (a loss, a win, a loss) so that a win can be shown; all amounts are simulated. The capture script is `capture-media.mjs` in the game folder.*
 
@@ -49,7 +49,7 @@ Node.js 22+ on Linux or Ubuntu/WSL2, plus a browser wallet holding a hardwired R
 ```sh
 git clone https://github.com/khunchan/friendsdk.git
 cd friendsdk
-git checkout 368f606b5789e6d9f9183ecb652d650129e990ab
+git checkout 46e7b218d60290918155f3109c33ed3338738591
 npm ci
 npm run dev:game -- games/friend-rooms
 ```
@@ -87,14 +87,14 @@ Expected reward: **0.90 RF per 1 RF ticket** (90% return). The table has 10 seat
 **Roadmap in five steps**
 
 1. **Duel:** two real players at one table of 2 (needs shared rooms and a room contract).
-2. **Rounds on a timer:** tables of 2 to 10 for whoever has signed up, with one keeper transaction and one Dice randomness per round.
+2. **Rounds on a timer:** tables of 2 to 10 for whoever has signed up, once the table fees cover the round's costs, with one keeper transaction and one Dice randomness per round.
 3. **Stake levels:** the locked doors, Room 1,000 / 10,000 / 100,000 RF, become playable.
 4. **Tournaments with an NFT prize:** a bracket of tables of 10 ending in a final table (needs wearable NFTs and NFT prizes).
 5. **A Friend's own world as style:** the hall takes its look from the selected Friend's Scenery and Floor.
 
-Friend Rooms is a preview. A real version needs: shared tables with real players, several ticket tiers, a room contract with one allowance, rounds started on a timer by a keeper bot with unattended settlement, seating at tables of 2 to 10 players, one Dice randomness per round, a table fee separated from the pot at entry that pays gas and randomness, with the remainder burned at once, reading shared round state from game code, a larger preview wallet, Friend traits (Scenery, Floor) as a style source, and, for tournaments with an NFT prize, wearable NFTs, NFT prizes and tournament contracts. The game README explains [how real Friends would join rooms](https://github.com/khunchan/friendsdk/blob/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/README.md#how-real-friends-join-rooms) (rounds on a timer, tables of up to 10, at least 2 players per table, one transaction and one Dice randomness per round), why a contract is better than a server, the tournament bracket, and the [minimum ticket size](https://github.com/khunchan/friendsdk/blob/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/README.md#minimum-ticket-size-estimate) formula. Rounds on a timer also solve the liquidity problem at launch: a round runs with whoever has signed up, even two players, instead of waiting for a full hall.
+Friend Rooms is a preview. A real version needs: shared tables with real players, several ticket tiers, a room contract with one allowance, rounds started on a timer by a keeper bot with unattended settlement, seating at tables of 2 to 10 players, one Dice randomness per round, a table fee separated from the pot at entry that pays gas and randomness, with the remainder burned at once, reading shared round state from game code, a larger preview wallet, Friend traits (Scenery, Floor) as a style source, and, for tournaments with an NFT prize, wearable NFTs, NFT prizes and tournament contracts. The game README explains [how real Friends would join rooms](https://github.com/khunchan/friendsdk/blob/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/README.md#how-real-friends-join-rooms) (rounds on a timer, tables of up to 10, at least 2 players per table, one transaction and one Dice randomness per round), why a contract is better than a server, the tournament bracket, and the [minimum ticket size](https://github.com/khunchan/friendsdk/blob/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/README.md#minimum-ticket-size-estimate) formula. Rounds on a timer also help with liquidity at launch: a round starts as soon as its table fees cover its costs (about 4 players at the 100 RF level and 2 from 1,000 RF; estimate), instead of waiting for a full hall.
 
-The economics are a formula, not a fixed price: a round is viable while (gas + RNG fee in ETH) × ETH price ≤ 10% × players in the round × ticket × RF price. The 10% table fee is taken at entry and first pays the round's costs, the rest is burned at once, and a player left without an opponent gets the whole ticket back. As an estimate as of 2026-09-20 (ETH about $2,450, 100,000 RF about 0.128 ETH from a community tracker, round costs about $0.10 assumed), a round of 10 players needs about 32 RF per ticket, so 1 and 10 RF are not viable and 100 RF is (about 3× margin, about 68% of the fees burned).
+The economics are a formula, not a fixed price: a round is viable while (gas + RNG fee in ETH) × ETH price ≤ 10% × players in the round × ticket × RF price. The 10% table fee is taken at entry and first pays the round's costs, the rest is burned at once, and a player left without an opponent gets the whole ticket back. As an estimate as of 2026-09-20 (ETH about $2,450, 100,000 RF about 0.128 ETH from a community tracker, round costs about $0.10 assumed), a round of 10 players needs about 32 RF per ticket, so 1 and 10 RF are not viable and 100 RF is (about 3× margin, about 68% of the fees burned). At the 100 RF level a round needs about 4 players for the fees to cover the costs; smaller rounds wait for the next timer.
 
 ## Checks and known issues
 
@@ -104,4 +104,4 @@ Known limits: the preview wallet is fixed at 20 RF (hence the 1/100 scale and 11
 
 ## Credits
 
-Built on FriendSDK v0.1: its world renderer and scenery, canonical Generations sprites (read from the chain, never altered), sound kit and runtime. The pixel font, table scene, number plates, bot tokens, rules and code are original to this game. See the [notices](https://github.com/khunchan/friendsdk/blob/368f606b5789e6d9f9183ecb652d650129e990ab/games/friend-rooms/NOTICE.md). Licensing: according to the Rare Friends team, the SDK is licensed under Apache 2.0 ([statement in this pull request](https://github.com/spokesz/rarefriends-vibeathon/pull/7#issuecomment-5748019728)). AI-assisted build (Claude Code).
+Built on FriendSDK v0.1: its world renderer and scenery, canonical Generations sprites (read from the chain, never altered), sound kit and runtime. The pixel font, table scene, number plates, bot tokens, rules and code are original to this game. See the [notices](https://github.com/khunchan/friendsdk/blob/46e7b218d60290918155f3109c33ed3338738591/games/friend-rooms/NOTICE.md). Licensing: according to the Rare Friends team, the SDK is licensed under Apache 2.0 ([statement in this pull request](https://github.com/spokesz/rarefriends-vibeathon/pull/7#issuecomment-5748019728)). AI-assisted build (Claude Code).
