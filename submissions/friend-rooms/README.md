@@ -24,7 +24,7 @@ A black-and-white isometric hall with four doors. **Room 100 RF** works; Room 1,
 | **A win: HIGHEST! and +9 RF SIMULATED** | **Session receipt** |
 | ![A win at the table](https://raw.githubusercontent.com/khunchan/friendsdk/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/media/win.png) | ![The session receipt](https://raw.githubusercontent.com/khunchan/friendsdk/83fa87aaad37966fbd500c082782deb523e41b90/games/friend-rooms/media/receipt.png) |
 
-*Captured from the game in the SDK's public runner with the SDK's mocked, read-only test wallet and its sample Friend #7730. The preview rolls are scripted (a loss, a win, a loss) so that a win can be shown; all amounts are simulated. The capture script is  in the game folder.*
+*Captured from the game in the SDK's public runner with the SDK's mocked, read-only test wallet and its sample Friend #7730. The preview rolls are scripted (a loss, a win, a loss) so that a win can be shown; all amounts are simulated. The capture script is `capture-media.mjs` in the game folder.*
 
 ## How it uses Rare Friends
 
